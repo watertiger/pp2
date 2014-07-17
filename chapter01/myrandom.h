@@ -23,20 +23,20 @@ void myrand( int *arr, int size, unsigned int seed, int flag)
 {
 	int i = 0;
 	int repeated = 0;
-	char bitmap[BITC_NSLOT(MAX_LIMIT)];
+	char bitmap[BIT_NSLOT(MAX_LIMIT)];
 	
 	for ( i = 0; i < MAX_LIMIT; i++) {
-		BITC_CLR( bitmap, i);
+		BIT_CLR( bitmap, i);
 	}
 	
 	srand(seed);
 	for ( i = 0; i < size;) {
 		arr[i] = rand() % MAX_LIMIT;
 		if ( flag ) {
-			if ( BITC_TEST(bitmap, arr[i]) ) {
+			if ( BIT_TEST(bitmap, arr[i]) ) {
 				continue;
 			} else {
-				BITC_SET(bitmap, arr[i]);
+				BIT_SET(bitmap, arr[i]);
 				i++;
 			}
 /**
