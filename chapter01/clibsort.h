@@ -15,6 +15,14 @@ void clib_sort(int *arr, int size)
 	qsort( arr, size, sizeof(int), cmp_int);
 	end = clock();
 	printf("CLIBSORT: %f seconds used.\n", ((double)(end-start))/1000000);
+	start = clock();
+	for ( i = 0; i < size; i++) {
+		printf("%07d\n", arr[i]);
+//		if (!((i + 1) % 20))
+//			putchar('\n');
+	}
+	end = clock();
+	printf("CLIBSORT output: %f seconds used.\n", ((double)(end-start))/1000000);
 	
 	return;
 }
